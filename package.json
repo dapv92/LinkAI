@@ -1,0 +1,29 @@
+{
+  "name": "zybai",
+  "version": "1.0.0",
+  "description": "Web de inteligencia artificial para generar contenidos",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "chatgpt",
+    "openai",
+    "generacion",
+    "de",
+    "imagenes",
+    "generacion",
+    "de",
+    "textos"
+  ],
+  "author": "Diego Páez",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "fund": "^1.0.0",
+    "nodemon": "^2.0.20",
+    "openai": "^3.1.0"
+  }
+}
