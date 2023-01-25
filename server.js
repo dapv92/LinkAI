@@ -24,7 +24,7 @@ app.use(express.urlencoded({extended:true}));
 app.use(cors({
     origin: ["http://example.com", "https://example.com"],
     methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"]
+    allowedHeaders: ["Content-Type", "Authorization", "Access-Control-Allow-Origin"]
 }));
 // Configuramos openAI
 
