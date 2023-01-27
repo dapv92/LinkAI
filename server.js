@@ -5,11 +5,6 @@ const https = require("https")
 const port = 5500;
 const cors = require("cors");
 const vhost = require('vhost');
-app.use(vhost('compasscommunity.net', function(req, res){
-    // Codigo para manejar las solicitudes en el host virtual
-    // Por ejemplo:
-    res.send("Bienvenido al host virtual compasscommunity.net");
-}));
 
 // Configuramos las variables de ambiente
 const dotenv = require("dotenv");
@@ -26,6 +21,16 @@ app.use(cors({
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization", "Access-Control-Allow-Origin"]
 }));
+app.use(vhost('compasscommunity.net', function(req, res){
+    console.log("se ha recibido una consulta" + process.env.OPENAI_KEY,);
+    try {
+        generateImage(req,res);
+        // console.log(process.env.OPENAI_KEY);
+    } catch (error) {
+        console.log("ha ocurrido el siguiente error: " + error);
+    }
+}));
+
 // Configuramos openAI
 
 const {Configuration, OpenAIApi} = require("openai");
