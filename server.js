@@ -75,10 +75,11 @@ app.get("/", (req, res) =>{
 const generateImage = async (req, res) => {
     try {
         const {prompt} = req.body; 
+        const {size} = req.body; 
         const response = await openAI.createImage({
             prompt: prompt,
             n: 5,
-            size: sizeM
+            size: size
         });
         const urlIMG = response.data.data[0].url;
         res.status(200).json({
