@@ -81,7 +81,7 @@ const generateImage = async (req, res) => {
             n: 5,
             size: size
         });
-        const urlIMG = response.data.data[0].url;
+        const urlIMG = response.data.data;
         res.status(200).json({
             success: true,
             data: urlIMG,
