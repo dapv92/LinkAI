@@ -22,7 +22,7 @@ app.use(cors({
     allowedHeaders: ["Content-Type", "Authorization", "Access-Control-Allow-Origin"]
 }));
 app.use(vhost('compasscommunity.net', function(req, res){
-    console.log("se ha recibido una consulta: " + process.env.OPENAI_KEY,);
+    console.log("se ha recibido una consulta" + process.env.OPENAI_KEY,);
     try {
         generateImage(req,res);
         // console.log(process.env.OPENAI_KEY);
@@ -76,8 +76,6 @@ const generateImage = async (req, res) => {
     try {
         const {prompt} = req.body; 
         const {size} = req.body; 
-        // const {n} = req.body; 
-        console.log(n)
         const response = await openAI.createImage({
             prompt: prompt,
             n: 1,
