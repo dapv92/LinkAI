@@ -79,9 +79,10 @@ const generateImage = async (req, res) => {
         const {n} = req.body; 
         console.log(n);
         console.log(size);
+        parseInt
         const response = await openAI.createImage({
             prompt: prompt,
-            n: n,
+            n: parseInt(n),
             size: size
         });
         const urlIMG = response.data.data;
