@@ -21,26 +21,6 @@ app.use(cors({
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization", "Access-Control-Allow-Origin"]
 }));
-app.use(vhost('compasscommunity.net:5500', function(req, res){
-    console.log("se ha recibido una consulta de imagen");
-    try {
-        generateImage(req,res);
-        // console.log(process.env.OPENAI_KEY);
-    } catch (error) {
-        console.log("ha ocurrido el siguiente error: " + error);
-    }
-}));
-
-// app.use(vhost('compasscommunity.net/texto', function(req, res){
-//     console.log("se ha recibido una consulta de texto");
-//     try {
-//         generateImage(req,res);
-//         // console.log(process.env.OPENAI_KEY);
-//     } catch (error) {
-//         console.log("ha ocurrido el siguiente error: " + error);
-//     }
-// }));
-
 // Configuramos openAI
 
 const {Configuration, OpenAIApi} = require("openai");
@@ -81,6 +61,25 @@ app.post('/openai', (req, res) => {
 app.get("/", (req, res) =>{
     res.send("servidor corriendo")
 })
+app.use(vhost('compasscommunity.net:5500', function(req, res){
+    console.log("se ha recibido una consulta de imagen");
+    try {
+        generateImage(req,res);
+        // console.log(process.env.OPENAI_KEY);
+    } catch (error) {
+        console.log("ha ocurrido el siguiente error: " + error);
+    }
+}));
+
+app.use(vhost('compasscommunity.net/texto', function(req, res){
+    console.log("se ha recibido una consulta de texto");
+    try {
+        generateImage(req,res);
+        // console.log(process.env.OPENAI_KEY);
+    } catch (error) {
+        console.log("ha ocurrido el siguiente error: " + error);
+    }
+}));
 // Funcion que genera la imagen
 const generateImage = async (req, res) => {
     try {
