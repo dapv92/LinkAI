@@ -59,7 +59,7 @@ app.use(vhost('compasscommunity.net', function(req, res){
 app.use(vhost('compasscommunity.net/texto', function(req, res){
     console.log("se ha recibido una consulta de texto");
     try {
-        generateImage(req,res);
+        generateText(req,res);
         // console.log(process.env.OPENAI_KEY);
     } catch (error) {
         console.log("ha ocurrido el siguiente error: " + error);
