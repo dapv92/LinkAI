@@ -46,7 +46,7 @@ const options = {
         console.log("Server running on port 5500");
     });
 
-app.use(vhost('compasscommunity.net:5500', function(req, res){
+app.use(vhost('compasscommunity.net', function(req, res){
     console.log("se ha recibido una consulta de imagen");
     try {
         generateImage(req,res);
