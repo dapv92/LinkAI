@@ -21,7 +21,7 @@ app.use(cors({
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization", "Access-Control-Allow-Origin"]
 }));
-app.use(vhost('compasscommunity.net/imagen:5500', function(req, res){
+app.use(vhost('compasscommunity.net:5500', function(req, res){
     console.log("se ha recibido una consulta de imagen");
     try {
         generateImage(req,res);
