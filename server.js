@@ -90,3 +90,31 @@ const generateImage = async (req, res) => {
 	console.log(error);
     }
 }
+const generateText = async (req, res) => {
+    try {
+        const {prompt} = req.body; 
+        const {size} = req.body; 
+        const {n} = req.body; 
+        console.log(n);
+        console.log(size);
+        const response = await openAI.createCompletion({
+            prompt: prompt,
+            model: "text-davinci-003",
+            temperature: 0.9,
+            max_tokens: 3505,
+            top_p: 1,
+            frequency_penalty: 0,
+            presence_penalty: 0.6,
+            stop: [" Human:", " AI:"],
+        });
+        const urlIMG = response.data.data;
+        res.status(200).json({
+            success: true,
+            data: urlIMG,
+        });
+    } catch (error) {
+        res.json({textError: true,
+                    textE: error});
+	console.log(error);
+    }
+}
