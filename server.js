@@ -90,13 +90,14 @@ const generateImage = async (req, res) => {
 	console.log(error);
     }
 }
+
+
+
+
+
 const generateText = async (req, res) => {
     try {
         const {prompt} = req.body; 
-        const {size} = req.body; 
-        const {n} = req.body; 
-        console.log(n);
-        console.log(size);
         const response = await openAI.createCompletion({
             prompt: prompt,
             model: "text-davinci-003",
