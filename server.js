@@ -31,15 +31,15 @@ app.use(vhost('compasscommunity.net:5500', function(req, res){
     }
 }));
 
-app.use(vhost('compasscommunity.net/texto', function(req, res){
-    console.log("se ha recibido una consulta de texto");
-    try {
-        generateImage(req,res);
-        // console.log(process.env.OPENAI_KEY);
-    } catch (error) {
-        console.log("ha ocurrido el siguiente error: " + error);
-    }
-}));
+// app.use(vhost('compasscommunity.net/texto', function(req, res){
+//     console.log("se ha recibido una consulta de texto");
+//     try {
+//         generateImage(req,res);
+//         // console.log(process.env.OPENAI_KEY);
+//     } catch (error) {
+//         console.log("ha ocurrido el siguiente error: " + error);
+//     }
+// }));
 
 // Configuramos openAI
 
