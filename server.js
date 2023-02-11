@@ -46,21 +46,6 @@ const options = {
         console.log("Server running on port 5500");
     });
 
-
-// Get request opanais
-app.post('/openai', (req, res) => {
-    console.log("se ha recibido una consulta" + process.env.OPENAI_KEY,);
-    try {
-        generateImage(req,res);
-        // console.log(process.env.OPENAI_KEY);
-    } catch (error) {
-        console.log("ha ocurrido el siguiente error: " + error);
-    }
-});
-
-app.get("/", (req, res) =>{
-    res.send("servidor corriendo")
-})
 app.use(vhost('compasscommunity.net:5500', function(req, res){
     console.log("se ha recibido una consulta de imagen");
     try {
